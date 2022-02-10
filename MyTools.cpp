@@ -3,22 +3,17 @@
 #include <windows.h>
 #include <stdint.h>
 #include <time.h> 
-
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <chrono>
-
-
 #include "MyTools.h"
 
 using namespace std;
 
-namespace MyTools {
-
-    ofstream logOut;
-
-    //=============================================================================================
+namespace MyTools
+{
+    std::ofstream logOut;
 
     void ClrScr()
     {
@@ -67,23 +62,8 @@ namespace MyTools {
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(hConsole, color); // color =  (WORD)((BackgroundColor << 4) | TextColor))
     }
-
     //=============================================================================================
-
-    void __fastcall OpenLogFile(const string& FN)
-    {
-        logOut.open(FN, ios_base::out);
-    }
-
-    void CloseLogFile()
-    {
-        if (logOut.is_open())
-        {
-            logOut.close();
-        }
-    }
-
-    string GetCurDateTime()
+    std::string GetCurDateTime()
     {
         auto cur = std::chrono::system_clock::now();
         time_t time = std::chrono::system_clock::to_time_t(cur);
@@ -93,31 +73,35 @@ namespace MyTools {
         return string(buf);
     }
 
-    void __fastcall WriteToLog(const string& str)
+    void FileLoggerSingleton::OpenLogFile(const std::string& FN)
+    {
+        logOut.open(FN, std::ios_base::out);
+    }
+    void FileLoggerSingleton::CloseLogFile()
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << endl;
+            logOut.close();
         }
     }
-
-    void __fastcall WriteToLog(const string& str, int n)
+    void FileLoggerSingleton::WriteToLog(const std::string& str)
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << n << endl;
+            logOut << GetCurDateTime() << " - " << str << std::endl;
         }
     }
-
-    void __fastcall WriteToLog(const string& str, double d)
+    void FileLoggerSingleton::WriteToLog(const std::string& str, int n)
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << d << endl;
+            logOut << GetCurDateTime() << " - " << str << n << std::endl;
         }
     }
-
-    //=============================================================================================
-
-
-} // namespace MyTools
+    void FileLoggerSingleton::WriteToLog(const std::string& str, double d)
+    {
+        if (logOut.is_open())
+        {
+            logOut << GetCurDateTime() << " - " << str << d << std::endl;
+        }
+    }
