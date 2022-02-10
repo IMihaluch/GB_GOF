@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 #include <string>
+#include <iostream>
+#include <vector>
 
 namespace MyTools {
 
@@ -25,7 +27,6 @@ namespace MyTools {
         CC_Yellow,
         CC_White
     };
-
 	//=============================================================================================
 
 	void ClrScr();
@@ -39,17 +40,64 @@ namespace MyTools {
     void SetColor(ConsoleColor color);
 
 	//=============================================================================================
+class Logger
+    {
+    public:
+        virtual void OpenLogFile(const std::string &FN) = 0;
+        virtual void CloseLogFile() = 0;
+        virtual void WriteToLog(const std::string &str) = 0;
+        virtual void WriteToLog(const std::string &str, int n) = 0;
+        virtual void WriteToLog(const std::string &str, double d) = 0;
+        virtual ~Logger() {}
+    };
 
-	void __fastcall OpenLogFile(const std::string& FN);
+ class FileLoggerSingleton: public Logger
+    {
+    public:
+        static FileLoggerSingleton& getInstance()
+        {
+            static FileLoggerSingleton _instance;
+            return _instance;
+        }
 
-	void CloseLogFile();
+ void OpenLogFile(const std::string &FN) override;
+        void CloseLogFile() override;
+        void WriteToLog(const std::string &str) override;
+        void WriteToLog(const std::string &str, int n) override;
+        void WriteToLog(const std::string &str, double d) override;
+    private:
+        FileLoggerSingleton() {}
+        FileLoggerSingleton(const FileLoggerSingleton&) = delete;
+        FileLoggerSingleton& operator=(const FileLoggerSingleton&) = delete;
+        FileLoggerSingleton& operator=(FileLoggerSingleton&&) = delete;
+    };
 
-	void __fastcall WriteToLog(const std::string& str);
+ class LoggerSingleton: public Logger
+    {
+    public:
+        static LoggerSingleton& getInstance()
+        {
+            static LoggerSingleton _instance;
+            return _instance;
+        }
 
-	void __fastcall WriteToLog(const std::string& str, int n);
+        void OpenLogFile(const std::string &FN) override;
+        void CloseLogFile() override;
+        void WriteToLog(const std::string &str) override;
+        void WriteToLog(const std::string &str, int n) override;
+        void WriteToLog(const std::string &str, double d) override;
+        ~LoggerSingleton();
 
-	void __fastcall WriteToLog(const std::string& str, double d);
+    private:
+        LoggerSingleton() {}
+        LoggerSingleton(const LoggerSingleton&) = delete;
+        LoggerSingleton& operator=(const LoggerSingleton&) = delete;
+        LoggerSingleton& operator=(LoggerSingleton&&) = delete;
+        FileLoggerSingleton& LoadLoggerSingletone();
 
-	//=============================================================================================
+        FileLoggerSingleton *_logger = NULL;
+        std::vector<double> times;
+    };
+	
 
-};
+
