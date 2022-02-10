@@ -327,7 +327,7 @@ void SBomber::DrawFrame()
         }
     }
 
-    ScreenSingleton::getInstance().GotoXY(0, 0);
+    GotoXY(0, 0);
     fps++;
 
     FindLevelGUI()->SetParam(passedTime, fps, bombsNumber, score);
