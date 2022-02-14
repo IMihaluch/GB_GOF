@@ -1,8 +1,6 @@
 
 #include <conio.h>
-#include <windows.h>
 #include <stdint.h>
-#include <time.h> 
 #include <string>
 #include <iostream>
 #include <fstream>
