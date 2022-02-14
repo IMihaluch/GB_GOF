@@ -1,5 +1,6 @@
 #include "SBomber.h"
 #include "MyTools.h"
+#include "ScreenSingleton.h"
 
 int main(void)
 {
