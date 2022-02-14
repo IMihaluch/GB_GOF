@@ -1,16 +1,16 @@
-
 #include <conio.h>
-#include <windows.h>
 #include <thread>
 #include <chrono>
-
 #include "MyTools.h"
 #include "SBomber.h"
 #include "Bomb.h"
 #include "Ground.h"
 #include "Tank.h"
 #include "House.h"
-
+#include "ScreenSingleton.h"
+#include "enums/CraterSize.h"
+#include <chrono>
+#include <thread>
 
 
 using namespace std;
