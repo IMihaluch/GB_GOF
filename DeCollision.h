@@ -2,7 +2,7 @@
 
 #include <vector>
 
-class CollisionDetector 
+/*class CollisionDetector
 {
 public:
 
@@ -11,8 +11,8 @@ public:
     void CheckPlaneAndLevelGUI();
     void CheckBombsAndGround();
     void CheckDestoyableObjects(Bomb* pBomb);
-    
+
 private:
 
     SBomber* p_SBomber;
-};
+};/*
