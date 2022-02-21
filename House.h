@@ -3,6 +3,8 @@
 #include "DestroyableGroundObject.h"
 #include <cstdint>
 
+enum component {};
+
 class House : public DestroyableGroundObject 
 {
 public:
