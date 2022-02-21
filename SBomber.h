@@ -21,7 +21,9 @@ public:
     void CheckDestoyableObjects(Bomb* pBomb);
 private:
     SBomber* p_SBomber;
-    
+};
+
+class SBomber
 {
 public:
 
