@@ -2,12 +2,12 @@
 
 #include <vector>
 
-class DeCollision 
+class CollisionDetector 
 {
 public:
 
-    DeCollision(SBomber* p_SBomb) : p_SBomber(p_SBomb) {}
-    DeCollision() = delete;
+    CollisionDetector(SBomber* p_SBomb) : p_SBomber(p_SBomb) {}
+    CollisionDetector() = delete;
     void CheckPlaneAndLevelGUI();
     void CheckBombsAndGround();
     void CheckDestoyableObjects(Bomb* pBomb);
