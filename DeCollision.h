@@ -2,7 +2,6 @@
 
 #include <vector>
 
-
 class DeCollision 
 {
 public:
@@ -11,7 +10,7 @@ public:
     DeCollision() = delete;
     void CheckPlaneAndLevelGUI();
     void CheckBombsAndGround();
-    void CheckDestoyableObjects(Bomb* p_Bomb);
+    void CheckDestoyableObjects(Bomb* pBomb);
     
 private:
 
