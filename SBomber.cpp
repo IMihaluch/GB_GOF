@@ -1,4 +1,6 @@
 #include <conio.h>
+#include <chrono>
+#include <thread>
 #include <iostream>
 
 #include "MyTools.h"
@@ -6,6 +8,8 @@
 #include "Bomb.h"
 #include "Ground.h"
 #include "Tank.h"
+#include "ScreenSingleton.h"
+#include "enums/CraterSize.h"
 #include "House.h"
 #include "HouseBuilder.h"
 
