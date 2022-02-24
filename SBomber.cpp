@@ -94,16 +94,22 @@ SBomber::~SBomber()
 
 void SBomber::MoveObjects()
 {
+    Visitor* pVisitor = new LogVisitor;
+
     WriteToLog(string(__FUNCTION__) + " was invoked");
 
     for (size_t i = 0; i < vecDynamicObj.size(); i++)
     {
         if (vecDynamicObj[i] != nullptr)
         {
+            vecDynamicObj[i]->Accept(pVisitor);
             vecDynamicObj[i]->Move(deltaTime);
         }
     }
+
+    delete pVisitor;
 };
+
 
 void SBomber::CheckObjects()
 {
