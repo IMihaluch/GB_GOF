@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DynamicObject.h"
+#include "Visitor.h"
 
 class Bomb : public DynamicObject
 {
