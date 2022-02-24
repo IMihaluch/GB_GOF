@@ -117,11 +117,11 @@ namespace MyTools {
         }
     }
     
-    void __fastcall WriteToLog(const string& str, double d_o, double d_t)
+    void __fastcall WriteToLog(const string& str, double d_o, double dt)
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << d_o << " " << d_t << endl;
+            logOut << GetCurDateTime() << " - " << str << d_o << " " << dt << endl;
         }
     }
     //=============================================================================================
