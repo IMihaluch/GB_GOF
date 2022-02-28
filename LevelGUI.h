@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-
+#include "Tank.h"
 #include "GameObject.h"
 
 class LevelGUI : public GameObject {
