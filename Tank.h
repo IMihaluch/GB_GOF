@@ -12,8 +12,6 @@ public:
 
 	inline uint16_t GetScore() const override { return score; }
 
-	void Draw() const override;
-
 	void send_mes();
 
 	void Draw() const override;
