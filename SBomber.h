@@ -15,7 +15,7 @@ public:
     SBomber();
     ~SBomber();
     
-    bool GetExitFlag() const { return exitFlag; }
+    bool GetExitFlag() const;
 
     void ProcessKBHit();
     void TimeStart();
