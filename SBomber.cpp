@@ -5,6 +5,8 @@
 #include "Ground.h"
 #include "Tank.h"
 #include "House.h"
+#include "Tree.h"
+
 #include "ScreenSingleton.h"
 #include "enums/CraterSize.h"
 #include <chrono>
